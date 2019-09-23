@@ -32,9 +32,11 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
-               <Results result={this.state.result}/>
-               <Buttons buttonPressed={this.buttonPressed}/>
+            <div className="app">
+                <div className="calc-body">
+                       <Results result={this.state.result}/>
+                       <Buttons buttonPressed={this.buttonPressed}/>
+                </div>
             </div>
         )
     }
