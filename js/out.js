@@ -22566,6 +22566,10 @@ var App = function (_React$Component) {
         }, _this.buttonPressed = function (buttonName) {
             if (buttonName === '=') {
                 _this.calculate();
+            } else if (buttonName === 'C') {
+                _this.reset();
+            } else if (buttonName === 'CE') {
+                _this.backspace();
             } else {
                 _this.setState({
                     result: _this.state.result + buttonName
@@ -22581,6 +22585,14 @@ var App = function (_React$Component) {
                     result: 'error'
                 });
             }
+        }, _this.reset = function () {
+            _this.setState({
+                result: ''
+            });
+        }, _this.backspace = function () {
+            _this.setState({
+                result: _this.state.result.slice(0, -1)
+            });
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
@@ -22657,6 +22669,26 @@ var Buttons = function (_React$Component) {
                 { className: "buttons" },
                 _react2.default.createElement(
                     "button",
+                    { name: "(", onClick: this.buttonPressed },
+                    "("
+                ),
+                _react2.default.createElement(
+                    "button",
+                    { name: "C", onClick: this.buttonPressed },
+                    "C"
+                ),
+                _react2.default.createElement(
+                    "button",
+                    { name: "CE", onClick: this.buttonPressed },
+                    "CE"
+                ),
+                _react2.default.createElement(
+                    "button",
+                    { name: ")", onClick: this.buttonPressed },
+                    ")"
+                ),
+                _react2.default.createElement(
+                    "button",
                     { name: "1", onClick: this.buttonPressed },
                     "1"
                 ),
@@ -22669,6 +22701,11 @@ var Buttons = function (_React$Component) {
                     "button",
                     { name: "3", onClick: this.buttonPressed },
                     "3"
+                ),
+                _react2.default.createElement(
+                    "button",
+                    { name: "+", onClick: this.buttonPressed },
+                    "+"
                 ),
                 _react2.default.createElement(
                     "button",
@@ -22687,6 +22724,11 @@ var Buttons = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     "button",
+                    { name: "-", onClick: this.buttonPressed },
+                    "-"
+                ),
+                _react2.default.createElement(
+                    "button",
                     { name: "7", onClick: this.buttonPressed },
                     "7"
                 ),
@@ -22702,18 +22744,28 @@ var Buttons = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     "button",
-                    { name: "+", onClick: this.buttonPressed },
-                    "+"
+                    { name: "*", onClick: this.buttonPressed },
+                    "*"
                 ),
                 _react2.default.createElement(
                     "button",
-                    { name: "-", onClick: this.buttonPressed },
-                    "-"
+                    { name: "0", onClick: this.buttonPressed },
+                    "0"
+                ),
+                _react2.default.createElement(
+                    "button",
+                    { name: ".", onClick: this.buttonPressed },
+                    "."
                 ),
                 _react2.default.createElement(
                     "button",
                     { name: "=", onClick: this.buttonPressed },
                     "="
+                ),
+                _react2.default.createElement(
+                    "button",
+                    { name: "/", onClick: this.buttonPressed },
+                    "/"
                 )
             );
         }

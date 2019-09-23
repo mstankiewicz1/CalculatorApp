@@ -12,6 +12,10 @@ class App extends React.Component {
     buttonPressed = buttonName => {
         if (buttonName === '=') {
             this.calculate()
+        } else if (buttonName === 'C'){
+            this.reset();
+        } else if (buttonName === 'CE') {
+            this.backspace();
         } else {
             this.setState({
                 result: this.state.result + buttonName,
@@ -27,6 +31,18 @@ class App extends React.Component {
                 result: 'error'
             })
         }
+    };
+
+    reset = () => {
+        this.setState({
+            result: ''
+        })
+    };
+
+    backspace = () => {
+      this.setState({
+          result: this.state.result.slice(0,-1),
+      })
     };
 
 
